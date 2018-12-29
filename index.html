@@ -6,13 +6,14 @@
 </head>
 <body>
 
-
+  <div class="show"></div>
     <div class="clock">
       <div class="clock-face">
         <div class="hand hour-hand hour-test"></div>
         <div class="hand min-hand"></div>
         <div class="hand second-hand"></div>
       </div>
+      <div class="show"></div>
     </div>
 
 
@@ -33,7 +34,12 @@
       min-height: 100vh;
       align-items: center;
     }
-
+    .show{
+      top: 0;
+      left: 30%;
+      position: relative;
+      color: white;
+    }
     .clock {
       width: 30rem;
       height: 30rem;
@@ -92,9 +98,14 @@
         const sec = now.getSeconds();
         const min = now.getMinutes();
         const hour = now.getHours();
-
+        const showcolor = document.querySelector('.show');
+        showcolor.innerHTML = hour+':'+min+':'+sec;
+        
+        const show = document.querySelector('.show');
+        show.innerHTML = 'ddd'+hour+':'+min+':'+sec;
         console.log('ddd'+hour+':'+min+':'+sec);
 
+        
         const secondHand = document.querySelector('.second-hand');
         const secondDeg = 360 / 60 * sec + 90;
 
